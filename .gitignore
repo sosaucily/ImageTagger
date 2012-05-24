@@ -7,7 +7,7 @@ tmp/
 doc/*
 public/processedVideos/*
 public/system/*
-BetterSenseDemoDev.tmproj
+ImageTagger.tmproj
 *.swp
 config/kaltura.yml
 config/iqengines.yml
