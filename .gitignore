@@ -1,1 +1,16 @@
 /log/*
+.DS_Store
+.bundle
+db/*.sqlite3
+tmp/
+*~
+doc/*
+public/processedVideos/*
+public/system/*
+BetterSenseDemoDev.tmproj
+*.swp
+config/kaltura.yml
+config/iqengines.yml
+devise/*
+reports/*
+

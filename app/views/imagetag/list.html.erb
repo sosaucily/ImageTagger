@@ -1,0 +1,47 @@
+<h1>Images for the Crowd</h1>
+<br />
+<h4>Images to be processed by the crowd...</h4>
+
+<table id="ver-minimalist">
+  <thead>
+    <tr>
+      <th scope="col">Image ID</th>
+      <th scope="col">Associated Video ID</th>
+      <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+<% @incomplete_crowd_images.each do |pic| %>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td><%= pic.id %></td>
+    <td><%= pic.video_id %></td>
+    <td></td>
+    <td></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+
+<br />
+<h4>Images that have been processed by the crowd...</h4>
+<table id="ver-minimalist">
+  <thead>
+    <tr>
+      <th scope="col">Image ID</th>
+      <th scope="col">Associated Video ID</th>
+      <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+<% @completed_crowd_images.each do |pic| %>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td><%= pic.id %></td>
+    <td><%= pic.video_id %></td>
+    <td></td>
+    <td></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>

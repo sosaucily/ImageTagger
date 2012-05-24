@@ -1,0 +1,11 @@
+<h1>New Order</h1>
+
+<div class="span-10">
+<%= render 'form' %>
+</div>
+
+<div class="span-10 last">
+<%= render :partial => "shared/cart_module", :locals => {:show_clear => false} %>
+</div>
+
+<%= link_to 'Back', orders_path %>

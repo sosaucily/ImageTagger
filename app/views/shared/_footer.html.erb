@@ -1,0 +1,24 @@
+  <!-- end #page --> 
+		  </section>
+			<footer>
+				<div class="policy">
+					image_tagger &copy; 2012 &bull; All rights reserved. &bull; <a href="/">Privacy Policy</a>
+				</div>
+				<div class="socials">
+					<a href="#" class="normaltip" title="Coming Soon!"><img src="/images/twitter.jpg" alt="" /></a><a href="#" class="normaltip" title="Coming Soon!"><img src="/images/flickr.jpg" alt="" /></a><a href="#" class="normaltip" title="Coming Soon!"><img src="/images/facebook.jpg" alt="" /></a>
+				</div>
+				<div class="footer_data">
+					<a href="/contact"><u>Contact</u></a> - <a href="/about"><u>Our Team</u></a>
+					<% if (user_signed_in?) %>
+						<br />Signed in as <%= current_user.email %>.  <u><%= link_to "Sign out", destroy_user_session_path %></u>
+					<% elsif (admin_signed_in?) %>
+						<br />Signed in as <%= current_admin.email %>.  <u><%= link_to "Sign out", destroy_admin_session_path %></u>
+					<% else %>
+						- <u><%= link_to "Sign in", new_user_session_path %></u>
+					<% end %>
+				</div>
+			</footer>
+		</div>
+	</div>
+</div>
+  <!-- end #footer --> 

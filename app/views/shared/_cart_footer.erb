@@ -1,0 +1,1 @@
+<%= if defined? @cart then " - Cart-ID: #{@cart.id} - Empty: #{@cart.line_items.empty?.to_s}" else "" end %>

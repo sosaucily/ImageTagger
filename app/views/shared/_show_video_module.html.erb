@@ -1,0 +1,36 @@
+<%# Trim here to a certain number of charaters if any word is over x chars, or if the name is over x chars %>
+<div style="width:140px;"><strong><%= "#{display_video_name_short(video, 19)}" %></strong></div> - <a href="javascript:$('#submit_delete_<%=video.id.to_s%>').click()">Delete</a>
+<%= form_tag("/videos/#{video.id}", {:remote => true, :method=>'delete', :hidden=>true}) do %>
+	<%= submit_tag "", :id => "submit_delete_#{video.id.to_s}" %>
+<% end %>
+<br />
+<span id="video_info_<%=video.id.to_s%>" title="<%= video_info_tooltip(video).html_safe %>" style="font-size:10pt; font-weight:normal; color:#D20001;"><img width="160" height="120" src="<%= if video.thumbnail_file_name.nil? then 'images/loading.gif' else video.thumbnail.url(:thumb) end %>"  /></span><br />
+<% if video.is_complete %>
+	<%= link_to("View Report","/videos/#{video.id}/reports") %>
+<%# A processing video can be ordered. %>
+<% elsif video.ready_to_order %>
+	<%= form_tag("/carts/#{cart.id}/add_item", {:remote => true, :id=>"default_form"}) do %>
+		<%= hidden_field_tag 'video_id',video.id %>
+		<%= select_tag 'quality', "<option>basic</option><option>premium</option>".html_safe%>
+		<%= submit_tag "Add to Cart", :class=> "submit_button button2sm" %>
+	<% end %>
+<% elsif video.is_analyzing %>
+	<span>Ordering - Building Report</span><a href="javascript:$('#submit_refresh_<%=video.id.to_s%>').click()">Refresh</a>
+<% elsif video.is_processing %>
+	<span>Please Wait...</span>
+<% end %>
+<%= form_tag("/videos/#{video.id}/update_status", {:remote => true, :hidden=>true}) do %>
+	<%= hidden_field_tag 'video_page_status', video.status %>
+	<%= submit_tag "", :id => "submit_refresh_#{video.id.to_s}" %>
+<% end %>	
+<script type="text/javascript">
+//Tool Tip for Video thumbnail
+	$('#video_info_<%=video.id.to_s%>').qtip();
+	//if (typeof window['timer_<%=video.id.to_s%>'] != 'undefined') clearTimeout(window['timer_<%=video.id.to_s%>']); 
+	<% if video.is_processing %>
+		function refresh_video() {
+			var timer_<%=video.id.to_s%> = setTimeout("$('#submit_refresh_<%=video.id.to_s%>').click();",10000);
+		}
+		refresh_video();
+	<% end %>
+</script>

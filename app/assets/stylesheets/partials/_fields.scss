@@ -1,0 +1,8 @@
+@mixin bettersense-fields {
+  .form_clean_fields {
+    input {
+      background-color: #fff;
+      border:1px solid #bbb;
+    }
+  }
+}

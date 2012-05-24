@@ -1,0 +1,74 @@
+<% page_title "Video Management"%>
+<%= javascript_include_tag %w(jquery-ui betterVideoUpload swfobject jquery.uploadify.v2.1.4) %>
+					<div class="indent1">
+						<div class="wrapper">
+							<article class="grid_4 alpha">
+								<h4 class="h4-bg">Your Account</h4>
+								<div class="border">
+									<strong><u><%= @account.company_name %></u></strong><br />
+									<strong>Primary Account Admin:</strong> <%= @account.fname %> <%= @account.lname %><br />
+								</div>
+								<!--<a id="box_link" href='/account/'>-->
+									<div class="box disabled">
+										<figure><img src="/images/template/icon3.png" alt="" /></figure>
+										<strong>Dashboard - Coming Soon!</strong><br />View account details.
+									</div>
+								<!--</a>-->
+								<a id="box_link" href='/account/edit'>
+									<div class="box">
+										<figure><img src="/images/template/icon2.png" alt="" /></figure>
+										<strong>Edit Account</strong> <br/>Modify account information.
+									</div>
+								</a>
+								<div class="box" id="upload_parent">
+									<div id="upload_box">
+										<figure><img src="/images/template/icon4.png" alt="" /></figure>
+										<strong>Upload New Video</strong>  <br>Click to upload a video.<br>
+										<div id="upload_break"><br /></div>
+									</div>
+									<div id="upload_module">
+										<%= render :partial => "shared/upload_video" %>
+									</div>
+								</div>
+								<div class="box" id="cart_parent">
+									<div id="parent_cart_box">
+										<figure><img src="/images/template/shopping_cart.png" alt="" /></figure>
+										<strong>Shopping Cart</strong>  <br>Your current shopping cart.<br>
+										<div id="parent_cart_break"><br /></div>
+									</div>
+									<div id="parent_cart_module">
+										<%= render :partial => "shared/cart_module", :locals => {:show_clear => true} %>
+									</div>
+								</div>
+							</article>
+							<article class="grid_8 omega">
+								<h4 class="h4-bg1">Your Video Library</h4>
+								<%= render :partial => "shared/show_videos" %>
+							</article>
+						</div>
+					</div>
+					<script type="text/javascript">
+						$('#upload_box').click ( function() { 
+							$('#upload_module').slideToggle('slow', function() {
+								is_upload_slid_up = (!is_upload_slid_up)
+						  	});
+							$('#upload_break').slideToggle('fast');
+							if (is_upload_slid_up) $('#upload_parent').addClass("box_extended")
+							else $('#upload_parent').removeClass("box_extended");
+						} );
+						$('#parent_cart_box').click ( function() { 
+							$('#parent_cart_module').slideToggle('slow', function() {
+								is_cart_slid_up = (!is_cart_slid_up)
+						  	});
+							$('#parent_cart_break').slideToggle('fast');
+							if (is_cart_slid_up) $('#cart_parent').addClass("box_extended");
+							else $('#cart_parent').removeClass("box_extended");
+						} );
+						$(function () {
+							$('#upload_module').slideUp(0); 
+							$('#upload_break').slideUp(0);
+							$('#parent_cart_module').slideUp(0); 
+							$('#parent_cart_break').slideUp(0);
+							is_cart_slid_up = is_upload_slid_up = true
+						} );
+					</script>

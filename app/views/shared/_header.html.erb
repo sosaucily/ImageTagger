@@ -1,0 +1,53 @@
+<body>
+	<div class="container_12">
+		<div class="wrapper">
+			<div class="grid_12">
+				<header>
+					<div class="extra-wrap">
+						<div class="grid_12 alpha omega">
+							<div class="prefix_2">
+								<div class="logo1">
+									<a href="/"></a>
+								</div>
+								<div class="logo2">
+									<a href="/"></a>
+								</div>
+							</div>
+						</div><br/>
+						<div class="grid_12 alpha omega prefix_2">
+							<nav>
+
+								<ul class="sf-menu">
+									<li><%= link_to 'home', '/', :id=>"nav_home" %></li>
+									<li><%= link_to 'how', '/how', :id=>"nav_how" %>
+									<li><%= link_to 'demo', '/demo', :id=>"nav_demo" %>
+										<!-- <ul>
+											<li><%# link_to 'demo home','/demo'%></li>
+											<li><%# link_to 'video demo','/demo/detected_items'%></li>
+											 <li><%# link_to 'Delivering Context Targeted Ads','/demo/kaltura_video' %></li> 
+										</ul> -->
+									</li>
+										<li><%= link_to 'account', '/account', :id=>"nav_account" %>
+										<!-- <ul> -->
+											<!--<li><%# link_to 'account home','/account'%></li>-->
+											<!--<li><%# link_to 'library','/account#library'%></li>-->
+											<!--<li><%# link_to 'orders','/account' %></li>-->
+									<!-- </ul> -->
+									</li>
+									<li><%= link_to 'about','/about', :id=>"nav_about" %></li>
+									<li><%= link_to 'contact','/contact', :id=>"nav_contact" %></li>
+								</ul>
+							</nav>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</header>
+
+<!-- end #header --> 
+<%= "<div class=\"info-box\" id=\"notice\"><p class=\"icon\"><img src=\"/images/template/icon-info.png\" alt=\"\"></p>#{notice}</p></div>".html_safe unless notice.nil? %>
+
+<%# "<p class=\"info-box\" id=\"notice\">#{notice}</p>".html_safe unless notice.nil? %>
+<%= "<div class=\"error-box\" id=\"alert\"><p class=\"icon\"><img src=\"/images/template/icon-error.png\" alt=\"\"></p>#{alert}</p></div>".html_safe unless alert.nil? %>
+<%# "<p class=\"error-box\" id=\"alert\">#{alert}</p>".html_safe unless alert.nil? %>
+				<section id="content">
+

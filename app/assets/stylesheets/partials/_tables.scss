@@ -1,0 +1,90 @@
+
+@mixin video-table {
+  #ver-minimalist
+  {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+        font-size: 12px;
+        margin: 0px;
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+  }
+  #ver-minimalist th
+  {
+        padding: 4px 2px;
+        font-weight: normal;
+        font-size: 12px;
+        border-bottom: 2px solid #6678b1;
+        border-right: 10px solid #fff;
+        border-left: 10px solid #fff;
+        color: #039;
+  }
+  #ver-minimalist td
+  {
+        padding: 6px 2px 0px 2px;
+        border-right: 10px solid #fff;
+        border-left: 10px solid #fff;
+        color: #669;
+  }
+
+  #ver-minimalist .vodd
+  {
+        background: #e8edff;
+  }
+
+  #ver-minimalist .veven
+  {
+        background: #ffffff;
+  }
+
+  #ver-minimalist thead th 
+  {
+        background: #ffffff; 
+  }
+
+  #ver-minimalist tfoot th
+  {
+        font-style: normal;
+  }
+}
+
+@mixin keyword-category-table {
+  .categoryBar
+  {
+		background-color:#F2F2F2;
+		height:0px;
+		#margin-top:200px;
+		#border-top-left-radius:35px 20px;
+		#border-top-right-radius:35px 20px;
+		opacity:0.7;
+		border-color: #3C3C3C;
+		border-style: solid;
+		border-width: 1px; 
+		margin-left:0px;
+		padding-left:11px;
+		#margin-right:1px;
+		
+  }
+
+  .categoryBarFirst
+  {
+		margin-left:22px;
+  }
+	
+  #categoryTable
+  {
+		background-color: #394172;
+  }
+
+  .dataTables_wrapper .vodd
+  {
+		background-color: #EFCACA;
+  }
+
+  .dataTables_wrapper .veven
+  {
+		background-color: #F4D9D9;
+  }
+
+  
+}

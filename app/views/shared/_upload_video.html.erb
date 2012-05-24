@@ -1,0 +1,41 @@
+<%# Used as partial collection, so must keep object name matching partial name %>
+<br />
+	<%= form_for(@video, :html => { :multipart => true, :id =>"default_form" }) do |f| %>
+	  <% if @video.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+	      <ul>
+	      <% @video.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	
+	<div>
+		  <div id="video_vid_file" name="video[vid_file]">
+		  </div><br />
+  		  <div class="field">
+		    <%= f.label :name %><br />
+		    <%= f.text_field :name %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :description %><br />
+		    <%= f.text_field :description %>
+		  </div>
+		  <div class="actions">
+		    <%= f.submit :hidden => true %>
+		  </div>
+	</div>
+	<% end %>
+	<%
+	  #session_key_name = ActionController::Base.session_options[:key]
+	  video_upload_params = {"source_account_id" => session[:account_id], "authenticity_token" => URI.escape(form_authenticity_token, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]")),"video_source" => "flash_module", "session_encoded" => session }
+	%>
+	
+	<script type="text/javascript">
+		video_parameters = <%= video_upload_params.to_json.html_safe %>;
+		uploadifyVideo("Select Video", video_parameters);
+	</script>
+	<a href="javascript:do_upload()" class="button2med">Upload Video</a>

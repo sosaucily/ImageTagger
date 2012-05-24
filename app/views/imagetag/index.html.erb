@@ -1,0 +1,44 @@
+<%= javascript_include_tag 'jquery-ui'%>
+<% 
+  imagew = Video.find(@image_for_crowd.video_id).res_x
+  imageh = Video.find(@image_for_crowd.video_id).res_y
+%>
+<script type="text/javascript">
+  var imagew = <%=imagew%>;
+  var imageh = <%=imageh%>;
+  var imagepath = '<%= @image_for_crowd.imagepath %>';
+</script>
+<h1>Welcome to the Image Tagger Interface</h1>
+<br />
+<div style="position: relative;">
+
+  <canvas id="layer1" width="<%= imagew %>" height="<%= imageh %>">
+  </canvas>
+<!--
+  <canvas id="layer2" width="<%= imagew %>" height="<%= imageh %>">
+  </canvas>
+-->
+</div>
+
+Choose selector type: <table id="drawOptions" cellspacing="8">
+<tr><td id="circleToolBox1" class="toolselector" style="padding: 10px; border: solid #000 4px;"><img src="/images/drawCircle.jpg" width="20" height="20"></td><td id="circleToolBox2" class="toolselector" style="padding: 5px; border: solid #000 1px;"><img width="30" height="30" src="/images/drawCircle.jpg"></td><td id="circleToolBox3" class="toolselector" style="border: solid #000 1px;"><img width="40" height="40" src="/images/drawCircle.jpg"></td></tr>
+</table>
+<br />
+
+<%= form_for (@image_for_crowd, :url => "/imagetag/#{@image_for_crowd.id}", :html=>{ :id=>'cImageInfo'}, :remote=>true) do |image| %>
+  <div class="field">
+    <table id="imageInfo">
+      <tr><td>X Coord: <input type="text" name="crowdimage[cx]" id="crowdimage_cx" placeholder="0"></td></tr>
+      <tr><td>Y Coord: <input type="text" name="crowdimage[cy]" id="crowdimage_cy" placeholder="0"></td></tr>
+      <tr><td><input type="text" name="crowdimage[cdescription]" id="crowdimage_cdescription" size="50" placeholder="Describe the Image"></td></tr>
+      <tr><td><input type="text" name="crowdimage[ccompanyurl]" id="crowdimage_ccompanyurl" size="50" placeholder="Web site for company"></td></tr>
+      <tr><td><input type="text" name="crowdimage[cproducturl]" id="crowdimage_cproducturl" size="50" placeholder="Web site for product"></td></tr>
+    </table>
+  </div>
+  <input type="hidden" name="crowdimage[cradius" id="crowdimage_cradius" />
+  <div class="actions">
+    <%= image.submit "Update pic!" %>
+  </div>
+<% end %>
+
+<%= javascript_include_tag "imagetag" %>

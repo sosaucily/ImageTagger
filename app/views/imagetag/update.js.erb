@@ -1,0 +1,11 @@
+$(':input','#cImageInfo')
+ .not(':button, :submit, :reset, :hidden')
+ .val('')
+ .removeAttr('checked')
+ .removeAttr('selected');
+//<%= logger.info ("Sending image with path #{@image_for_crowd.imagepath.to_s} via AJAX") %>
+window.clearAndNextPic (<%= "'#{@image_for_crowd.imagepath.to_s}',#{Video.find(@image_for_crowd.video_id).res_x},#{Video.find(@image_for_crowd.video_id).res_y}" %>);
+//<%= logger.info ("'#{@image_for_crowd.imagepath.to_s}',#{Video.find(@image_for_crowd.video_id).res_x},#{Video.find(@image_for_crowd.video_id).res_y}") %>
+$('#cImageInfo')[0].action = ('<%= "/imagetag/#{@image_for_crowd.id}" %>');
+$('.notice').html('<%= flash[:notice] %>');
+//<%= flash.discard %>

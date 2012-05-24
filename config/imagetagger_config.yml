@@ -1,0 +1,33 @@
+base: &base
+    processed_videos_dir: "/public/processedVideos"
+    videos_dir: "/public/videos"
+    backend_video_url: "/video/"
+    backend_report_url: "/reports/"
+    report_directory: "/reports/"
+    upload_video_dir: "/public/system/vid_files/"
+    upload_video_sub_dir: "/original/"
+    poll_for_video_status_change_seconds: "10"
+    send_video_to_backend_seconds: "5"
+    delete_from_backend_seconds: "10"
+    analyze_video_seconds: "15"
+    basic_cost_per_min: "2"
+    premium_cost_per_min: "5"
+    web_contact_email_address: "jesse@steelcorelabs.com"
+        
+development:
+    <<: *base
+    base_url: "http://localhost:3000"
+    backend_key: "HxmfdCjuqozranEkavx6"
+    backend_base_url: "http://localhost:8080"
+
+test:
+    <<: *base
+    base_url: "http://107.20.141.244"
+    backend_key: "HxmfdCjuqozranEkavx6"
+    backend_base_url: "http://107.20.141.244:8080"
+
+production:
+    <<: *base
+    base_url: "http://www.bettersense.com"
+    backend_key: "HxmfdCjuqozranEkavx6"
+    backend_base_url: "http://www.bettersense.com:8080"

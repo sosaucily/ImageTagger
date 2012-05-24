@@ -1,0 +1,32 @@
+<div id="show_videos_module">
+	<%= form_tag("/videos/refresh_videos", {:remote => true, :method => "get"}) do %>
+		<%= submit_tag "refresh_videos", :hidden=>true, :id=>"refresh_videos" %>
+	<% end %><br>
+	<% if @videos.empty? then %>
+		<%= "<div>There are no videos in your library</div>".html_safe %>
+	<% else %>
+		<% @videos.select{|v| v.viewable == true }.each_with_index do |video, index| %>
+			<% case (index % 3) %>
+			<% when 0 %>
+				<div class="video_thumb_parent">
+			<% when 1 %>
+				<div class="video_thumb_parent video_prefix">
+			<% when 2 %>
+				<div class="video_thumb_parent video_prefix">
+			<% end %>
+					<div id="video_module_<%=video.id.to_s%>" class="video_thumb">
+						<%= render :partial => 'shared/show_video_module', :locals => {:video => video, :cart => @cart} %>
+					</div>
+				</div>
+			<% if (index % 3 == 2) %>
+				<br /><br />
+			<% end %>
+		<% end %>
+	<% end %>
+	<script type="text/javascript">
+	//Tool Tip for image recognition
+		<% @videos.select{|v| v.viewable == true }.each do |video| %>
+			$('#video_info_<%=video.id.to_s%>').qtip();
+		<% end %>
+	</script>
+</div>

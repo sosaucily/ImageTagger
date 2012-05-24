@@ -1,0 +1,19 @@
+@mixin bettersense-helpers {
+
+  .precolborder {
+    margin-left: 15px;
+    padding-left: 24px;
+    border-left: 1px solid #dddddd;
+  }
+
+  .redhr {
+    border: 1px;
+    background-color: #CC0033;
+    color: #CC0033;
+    height: 2px;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+}
