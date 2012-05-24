@@ -49,7 +49,7 @@ class Video < ActiveRecord::Base
     if response.code != 200 then return end
       
     video_data = JSON.load(response.body.to_s)
-    new_status = video_data['status']['bettersense_status'].to_s
+    new_status = video_data['status']['imagetagger_status'].to_s
     
     #logger.info("Current video params = " + video_data.inspect)
     #Set values, but activerecord only updates the object if they have changed

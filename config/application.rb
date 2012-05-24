@@ -57,7 +57,7 @@ module ImageTagger
     config.assets.version = '1.0'
     
     config.before_initialize do
-      ImageTagger::APP_CONFIG = YAML.load_file("#{Rails.root.to_s}/config/bettersense_config.yml")[Rails.env]
+      ImageTagger::APP_CONFIG = YAML.load_file("#{Rails.root.to_s}/config/imagetagger_config.yml")[Rails.env]
       kaltura_yml = File.join(File.dirname(__FILE__),'kaltura.yml')
     end
     

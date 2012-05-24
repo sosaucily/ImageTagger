@@ -19,7 +19,7 @@ $logo-height: 77px;
     //@include prepend(7);
     @include push(6);
     height: $logo-height;
-    background: url(../images/bettersense-logo-grid.jpg) no-repeat top left; }
+    background: url(../images/imagetagger-logo-grid.jpg) no-repeat top left; }
   .footer {
     width: 100%;
     height: 50px;
@@ -129,6 +129,6 @@ $logo-height: 77px;
 
 @include keyword-category-table;
 
-@include bettersense-fields;
+@include imagetagger-fields;
 
-@include bettersense-helpers;
+@include imagetagger-helpers;

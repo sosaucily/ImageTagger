@@ -192,7 +192,7 @@ class VideosController < ApplicationController
     #The next line are a security to validate that the object being shown is owned by the current session holder.
     if !validate_account_id(@video.account_id).call().nil? then return end
     
-    report_filename = Rails.root.to_s + BetterSenseDemo::APP_CONFIG["report_directory"] + @video.hashstring + "/" + report_name
+    report_filename = Rails.root.to_s + ImageTagger::APP_CONFIG["report_directory"] + @video.hashstring + "/" + report_name
 
     #XSendFileAllowAbove on - apache  - http://www.therailsway.com/2009/2/22/file-downloads-done-right/
     send_file report_filename, :type=>"application/txt", :x_sendfile=>true

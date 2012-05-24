@@ -5,10 +5,10 @@ $ -> #JQuery initializer so this code runs after the page loads, when JQuery is 
 	#Build html5 canvas
 	gCanvasElement = root.$('#layer1')
 	myCanvas = gCanvasElement[0].getContext '2d'
-	betterpic = new Image
-	betterpic.onload = () ->
-		myCanvas.drawImage betterpic, 0, 0, root.imagew, root.imageh
-	betterpic.src = root.imagepath
+	crowdpic = new Image
+	crowdpic.onload = () ->
+		myCanvas.drawImage crowdpic, 0, 0, root.imagew, root.imageh
+	crowdpic.src = root.imagepath
 
 	#Record where the click happened, and draw the image at that spot.
 	#Params:
@@ -39,7 +39,7 @@ $ -> #JQuery initializer so this code runs after the page loads, when JQuery is 
 	#Draw the image on the canvas
 	drawSelectionCircle = (x, y, canvasContext, id) ->
 		canvasContext.clearRect 0, 0, root.imagew, root.imageh
-		myCanvas.drawImage betterpic, 0, 0, root.imagew, root.imageh
+		myCanvas.drawImage crowdpic, 0, 0, root.imagew, root.imageh
 		canvasContext.beginPath()
 		canvasContext.arc x, y, getRad(id), 0, Math.PI * 2, false
 		canvasContext.closePath()
@@ -85,10 +85,10 @@ $ -> #JQuery initializer so this code runs after the page loads, when JQuery is 
 		gCanvasElement = root.$('#layer1')
 		myCanvas = gCanvasElement[0].getContext '2d'
 		myCanvas.clearRect 0, 0, root.imagew, root.imageh
-		betterpic = new Image
-		betterpic.onload = () ->
-			myCanvas.drawImage betterpic, 0, 0, root.imagew, root.imageh
-		betterpic.src = newImagePath
+		crowdpic = new Image
+		crowdpic.onload = () ->
+			myCanvas.drawImage crowdpic, 0, 0, root.imagew, root.imageh
+		crowdpic.src = newImagePath
 		return
 
 	setSelectedTool toolID

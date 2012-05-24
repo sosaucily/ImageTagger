@@ -1,7 +1,7 @@
-# This is part of the BetterSense Web system
+# This is part of the ImageTagger Web system
 #
-# Author::    Jesse Smith  (mailto:js@bettersense.com)
-# Copyright:: Copyright (c) 2011 BetterSense
+# Author::    Jesse Smith  (mailto:jesse@steelcorelabs.com)
+# Copyright:: Copyright (c) 2012
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
@@ -25,8 +25,8 @@ class ApplicationController < ActionController::Base
   end
   
   def check_remote_key(key)
-    logger.info ("Comparing " + key + " with " + BetterSenseDemo::APP_CONFIG["backend_key"])
-    return (BetterSenseDemo::APP_CONFIG["backend_key"] == key)
+    logger.info ("Comparing " + key + " with " + ImageTagger::APP_CONFIG["backend_key"])
+    return (ImageTagger::APP_CONFIG["backend_key"] == key)
   end
 
   # Redirect after login using Devise

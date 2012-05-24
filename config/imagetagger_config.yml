@@ -28,6 +28,6 @@ test:
 
 production:
     <<: *base
-    base_url: "http://www.bettersense.com"
+    base_url: "http://www.imagetagger.com"
     backend_key: "HxmfdCjuqozranEkavx6"
-    backend_base_url: "http://www.bettersense.com:8080"
+    backend_base_url: "http://www.imagetagger.com:8080"
